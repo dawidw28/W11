@@ -32,7 +32,7 @@ class FirstActivity : AppCompatActivity() {
     var names = ArrayList<String>()
 
     var database : AppDatabase? = null
-    lateinit var spinner : Spinner
+    lateinit var spinner : Spinner 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
