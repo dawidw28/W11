@@ -14,8 +14,10 @@ class ZoomLeaderActivity : AppCompatActivity() {
 
         val name = findViewById<View>(R.id.nameView) as TextView
         val picture = findViewById<View>(R.id.image) as ImageView
-        val day = findViewById<View>(R.id.dayView) as TextView
-        val consultationsTime = findViewById<View>(R.id.consultationsView) as TextView
+        val day1 = findViewById<View>(R.id.dayView1) as TextView
+        val consultationsTime1 = findViewById<View>(R.id.consultationsView1) as TextView
+        val day2 = findViewById<View>(R.id.dayView2) as TextView
+        val consultationsTime2 = findViewById<View>(R.id.consultationsView2) as TextView
         val room = findViewById<View>(R.id.roomView) as TextView
         val degree = findViewById<View>(R.id.degreeView) as TextView
         val phone = findViewById<View>(R.id.phoneView) as TextView
@@ -23,9 +25,11 @@ class ZoomLeaderActivity : AppCompatActivity() {
 
         name.text = intent.getStringExtra("name")
         picture.setImageResource(intent.getIntExtra("picture", 0))
-        day.text = intent.getStringExtra("day")
+        day1.text = intent.getStringExtra("day1")
         room.text = intent.getStringExtra("room")
-        consultationsTime.text = intent.getStringExtra("time")
+        consultationsTime1.text = intent.getStringExtra("time1")
+        day2.text = intent.getStringExtra("day2")
+        consultationsTime2.text = intent.getStringExtra("time2")
         degree.text = intent.getStringExtra("degree")
         phone.text = intent.getStringExtra("phone")
         email.text = intent.getStringExtra("email")

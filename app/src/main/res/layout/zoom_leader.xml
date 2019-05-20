@@ -33,12 +33,12 @@
             android:layout_marginEnd="106dp" app:layout_constraintHorizontal_bias="0.0"/>
     <LinearLayout
             android:orientation="vertical"
-            android:layout_width="238dp"
-            android:layout_height="202dp"
+            android:layout_width="250dp"
+            android:layout_height="248dp"
             android:id="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="96dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="68dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="24dp"
     >
         <TextView
                 android:text="Contact:"
@@ -64,9 +64,15 @@
                 tools:layout_editor_absoluteX="271dp"/>
         <TextView
                 android:layout_width="200dp"
-                android:layout_height="30dp" android:id="@+id/consultationsView"/>
+                android:layout_height="30dp" android:id="@+id/dayView1"/>
         <TextView
                 android:layout_width="200dp"
-                android:layout_height="30dp" android:id="@+id/dayView"/>
+                android:layout_height="30dp" android:id="@+id/consultationsView1"/>
+        <TextView
+                android:layout_width="200dp"
+                android:layout_height="30dp" android:id="@+id/dayView2"/>
+        <TextView
+                android:layout_width="200dp"
+                android:layout_height="30dp" android:id="@+id/consultationsView2"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
