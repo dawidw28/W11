@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Umów na konsultacje" android:id="@+id/b1"/>
+    <item android:title="Moje konsultacje" android:id="@+id/b2"/>
+    <item android:title="Kadra" android:id="@+id/b3"/>
+    <item android:title="Kursy" android:id="@+id/b4"/>
+    <item android:title="Galeria" android:id="@+id/b5"/>
+    <item android:title="Aktualności" android:id="@+id/b6"/>
+    <item android:title="Kontakt" android:id="@+id/b7"/>
+    <item android:title="Kalkulator średniej" android:id="@+id/b8"/>
+
+</menu>

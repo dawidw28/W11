@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+                      android:orientation="vertical">
+            <TextView
+                    android:text="Główna siedziba:"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mainPlace"
+                    android:textSize="20sp" android:textStyle="bold"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:id="@+id/mainPlaceText"
+                    app:layout_constraintTop_toBottomOf="@+id/mainPlace" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" android:textSize="15sp"/>
+            <TextView
+                    android:text="Adres korespondencyjny:"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:id="@+id/contactAdress" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="2dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/mainPlaceText" android:textSize="20sp"
+                    android:textStyle="bold"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:id="@+id/contactAdressText"
+                    app:layout_constraintTop_toBottomOf="@+id/contactAdress" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" android:textSize="15sp"/>
+            <TextView
+                    android:text="Dodatkowe informacje:"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:id="@+id/addInfo" android:textSize="20sp"
+                    android:textStyle="bold" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="2dp" app:layout_constraintTop_toBottomOf="@+id/contactAdressText"
+                    android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:id="@+id/addInfoText"
+                    app:layout_constraintTop_toBottomOf="@+id/addInfo" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" android:textSize="15sp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
