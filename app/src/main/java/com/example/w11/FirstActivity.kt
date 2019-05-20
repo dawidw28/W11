@@ -119,9 +119,19 @@ class FirstActivity : AppCompatActivity() {
                 var tester = Consultation(chosenName, chosenRoom, chosenDate, chosenTime)
                 AsyncTask.execute {
                     database = AppDatabase.getInstance(this)
-                    database!!.consultationDao().insert(tester)
+                    try {
+                        database!!.consultationDao().insert(tester)
+                        this@FirstActivity.runOnUiThread {
+                            Toast.makeText(this, "Gratulacje! Zapisałeś się na konsultacje! ", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    }
+                    catch (e : SQLiteConstraintException) {
+                        this@FirstActivity.runOnUiThread {
+                            Toast.makeText(this, "Błąd! Już jesteś zapisany na konsultacje do tego prowadzącego! ", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
-                Toast.makeText(this, "Gratulacje! Zapisałeś się na konsultacje! ", Toast.LENGTH_SHORT).show()
             }
 
 
