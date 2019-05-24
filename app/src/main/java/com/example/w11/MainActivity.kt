@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.example.w11.courses.CoursesActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -37,6 +38,10 @@ class MainActivity : AppCompatActivity() {
             R.id.b3 ->{
                 val intent = Intent(this, ThirdActivity::class.java)
                startActivity(intent)
+            }
+            R.id.b4 -> {
+                val intent = Intent(this, CoursesActivity::class.java)
+                startActivity(intent)
             }
             R.id.b7 -> {
                 val intent = Intent(this, ContactActivity::class.java)

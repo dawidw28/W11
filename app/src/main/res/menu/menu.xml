@@ -7,7 +7,6 @@
     <item android:title="Kadra" android:id="@+id/b3"/>
     <item android:title="Kursy" android:id="@+id/b4"/>
     <item android:title="Galeria" android:id="@+id/b5"/>
-    <item android:title="Aktualności" android:id="@+id/b6"/>
     <item android:title="Kontakt" android:id="@+id/b7"/>
     <item android:title="Kalkulator średniej" android:id="@+id/b8"/>
 

@@ -26,6 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".courses.CoursesActivity" android:configChanges="orientation|screenSize"></activity>
+        <activity android:name=".courses.CourseDetails" android:configChanges="orientation|screenSize"></activity>
     </application>
 
 </manifest>
