@@ -11,7 +11,8 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="28dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="80dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="90dp" app:layout_constraintHorizontal_bias="0.002"/>
+            android:layout_marginEnd="90dp" app:layout_constraintHorizontal_bias="0.002"
+            android:textAlignment="center"/>
     <TextView
             android:layout_width="148dp"
             android:layout_height="55dp"
@@ -20,17 +21,17 @@
             app:layout_constraintTop_toBottomOf="@+id/nameView"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="124dp"
-    />
+            android:textAlignment="center"/>
     <TextView
             android:layout_width="200dp"
             android:layout_height="33dp"
             android:id="@+id/nameView"
             android:textColor="@android:color/background_dark"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/image" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="105dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="106dp" app:layout_constraintHorizontal_bias="0.0"/>
+            android:layout_marginEnd="106dp" app:layout_constraintHorizontal_bias="0.0" android:textAlignment="center"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="250dp"
@@ -41,7 +42,7 @@
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="24dp"
     >
         <TextView
-                android:text="Contact:"
+                android:text="Kontakt:"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content" android:id="@+id/contactInfo" android:textSize="14sp"
                 android:textColor="@android:color/background_dark"/>
@@ -54,7 +55,7 @@
                 android:layout_height="30dp" tools:layout_editor_absoluteY="171dp"
                 tools:layout_editor_absoluteX="270dp" android:id="@+id/phoneView"/>
         <TextView
-                android:text="Consultations:"
+                android:text="Konsultacje:"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content" android:id="@+id/consultationsInfo"
                 android:textColor="@android:color/background_dark" android:textSize="14sp"/>

@@ -12,7 +12,7 @@
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="36dp"
             app:layout_constraintHorizontal_bias="0.399"/>
     <Button
-            android:text="Choose a date"
+            android:text="Wybierz termin"
             android:layout_width="168dp"
             android:layout_height="49dp"
             android:id="@+id/button"
