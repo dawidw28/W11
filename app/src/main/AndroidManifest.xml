@@ -19,6 +19,13 @@
         </activity>
         <activity android:name=".ZoomLeaderActivity" android:configChanges="orientation|screenSize">
         </activity>
+        <activity android:name=".gallery.MainGallery">
+        </activity>
+        <activity android:name=".calc.CalcMain">
+        </activity>
+
+        <activity android:name=".gallery.SelectedEvent"></activity>
+        <activity android:name=".gallery.ImageFullScreen"></activity>
         <activity android:name=".MainActivity"  android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -3,4 +3,8 @@
     <color name="colorPrimary">#072C29</color>
     <color name="colorPrimaryDark">#9502241E</color>
     <color name="colorAccent">#06351F</color>
+    <color name="recycler_item_background">#D2D9EC</color>
+    <color name="background">#F5F0F0</color>
+    <color name="appBar">#97A2E6</color>
+    <color name="white">#FFFFFF</color>
 </resources>

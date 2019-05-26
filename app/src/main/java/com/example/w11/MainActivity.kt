@@ -2,11 +2,13 @@ package com.example.w11
 
 import android.content.Intent
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.example.w11.calc.CalcMain
 import com.example.w11.courses.CoursesActivity
+import com.example.w11.gallery.MainGallery
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -43,8 +45,16 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, CoursesActivity::class.java)
                 startActivity(intent)
             }
+            R.id.b5 -> {
+                val intent = Intent(this, MainGallery::class.java)
+                startActivity(intent)
+            }
             R.id.b7 -> {
                 val intent = Intent(this, ContactActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.b8 -> {
+                val intent = Intent(this, CalcMain::class.java)
                 startActivity(intent)
             }
 
