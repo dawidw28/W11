@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.text.method.ScrollingMovementMethod
+import android.view.ScaleGestureDetector
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -21,7 +22,7 @@ class SelectedEvent : AppCompatActivity() {
 
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.selected_event)
+        setContentView(com.example.w11.R.layout.selected_event)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
@@ -31,6 +32,12 @@ class SelectedEvent : AppCompatActivity() {
 
         titleS.text = event.title
         desc.text = event.description
+
+        var mGridLayoutManager1 = GridLayoutManager(this, 1)
+        var mGridLayoutManager2 = GridLayoutManager(this, 2)
+        var mGridLayoutManager3 = GridLayoutManager(this, 3)
+
+        var mCurrentLayoutManager = mGridLayoutManager3
 
         rcvb.layoutManager = GridLayoutManager(this, 3)
         rcvb.adapter = MyAdapter2(event.imagesID, this)
@@ -51,6 +58,44 @@ class SelectedEvent : AppCompatActivity() {
 
             state = !state
         }
+
+
+        val mScaleGestureDetector =
+            ScaleGestureDetector(this, object : ScaleGestureDetector.SimpleOnScaleGestureListener() {
+                override fun onScale(detector: ScaleGestureDetector): Boolean {
+                    if (detector.currentSpan > 250 && detector.timeDelta > 250) {
+                        if (detector.currentSpan - detector.previousSpan < -1) {
+                            if (mCurrentLayoutManager === mGridLayoutManager1) {
+                                mCurrentLayoutManager = mGridLayoutManager2
+                                rcvb.layoutManager = mGridLayoutManager2
+                                return true
+                            } else if (mCurrentLayoutManager === mGridLayoutManager2) {
+                                mCurrentLayoutManager = mGridLayoutManager3
+                                rcvb.layoutManager = mGridLayoutManager3
+                                return true
+                            }
+                        } else if (detector.currentSpan - detector.previousSpan > 1) {
+                            if (mCurrentLayoutManager === mGridLayoutManager3) {
+                                mCurrentLayoutManager = mGridLayoutManager2
+                                rcvb.layoutManager = mGridLayoutManager2
+                                return true
+                            } else if (mCurrentLayoutManager === mGridLayoutManager2) {
+                                mCurrentLayoutManager = mGridLayoutManager1
+                                rcvb.layoutManager = mGridLayoutManager1
+                                return true
+                            }
+                        }
+                    }
+                    return false
+                }
+            })
+
+
+        rcvb.setOnTouchListener(View.OnTouchListener { v, event ->
+            mScaleGestureDetector.onTouchEvent(event)
+            false
+        })
+
     }
 }
 

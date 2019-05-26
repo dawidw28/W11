@@ -1,6 +1,7 @@
 package com.example.w11.gallery
 
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -45,36 +46,18 @@ class ImageFullScreen : AppCompatActivity(), SharedPreferences.OnSharedPreferenc
         item = intent.getIntegerArrayListExtra("Item")
         position = intent.getIntExtra("Pos", 0)
         fullscreenImageView.setImageResource(item[position])
-
+        var sharedPref = this.getPreferences(Context.MODE_PRIVATE)
+        setListener(sharedPref.getBoolean("animations", false))
         setupSharedPreferences()
 
-        fullscreenImageView.setOnTouchListener(object : SwipeListener(this, fullscreenImageView) {
-
-            override fun onSwipeLeft() {
-                var newPos = position + 1
-                if (newPos == item.size) newPos = 0
-                fullscreenImageView.setImageResource(item.get(newPos))
-                position = newPos
-                Toast.makeText(applicationContext, "$position", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onSwipeRight() {
-                var newPos = position - 1
-                if (newPos < 0) newPos = item.size - 1
-                fullscreenImageView.setImageResource(item.get(newPos))
-                position = newPos
-                Toast.makeText(applicationContext, "$position", Toast.LENGTH_SHORT).show()
-            }
-        })
     }
 
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
 
         if (key == "animations") {
-            setListener(sharedPreferences.getBoolean("animations", true))
+            setListener(sharedPreferences.getBoolean("animations", false))
         }
-
 
     }
 
