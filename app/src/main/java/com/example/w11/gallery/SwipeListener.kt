@@ -4,12 +4,13 @@ package com.example.w11.gallery
 import android.app.Activity
 import android.content.Context
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
 
 
-open class SwipeListener(ctx: Context, fullscreenImageView: ImageView) : View.OnTouchListener {
+open class SwipeListener(var ctx: Context, fullscreenImageView: ImageView) : View.OnTouchListener {
 
     var MyView: ImageView
 
@@ -30,9 +31,21 @@ open class SwipeListener(ctx: Context, fullscreenImageView: ImageView) : View.On
         screenW = metrics.widthPixels
     }
 
+    var firstTouch = false
+    var time: Long = 0
+
     override fun onTouch(v: View, e: MotionEvent): Boolean {
         when (e.action) {
             MotionEvent.ACTION_DOWN -> {
+                if (firstTouch && (System.currentTimeMillis() - time) <= 300) {
+                    onDoubleClick()
+                    Log.e("** DOUBLE TAP**", " second tap ")
+                    firstTouch = false
+                } else {
+                    firstTouch = true
+                    Log.e("** SINGLE TAP**", " second tap ")
+                    time = System.currentTimeMillis()
+                }
 
                 MyView.parent.requestDisallowInterceptTouchEvent(true)
                 mPointerId = e.getPointerId(0)
@@ -128,6 +141,7 @@ open class SwipeListener(ctx: Context, fullscreenImageView: ImageView) : View.On
 
     }
 
+    open fun onDoubleClick() {}
     open fun onSwipeRight() {}
     open fun onSwipeLeft() {}
 

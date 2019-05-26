@@ -6,12 +6,12 @@ import android.view.MotionEvent
 import android.view.View
 
 
-open class SwipeListener2(c: Context) : View.OnTouchListener {
+open class SwipeListener2(var ctx: Context) : View.OnTouchListener {
 
     private val gestureDetector: GestureDetector
 
     init {
-        gestureDetector = GestureDetector(c, GestureListener())
+        gestureDetector = GestureDetector(ctx, GestureListener())
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
@@ -26,6 +26,13 @@ open class SwipeListener2(c: Context) : View.OnTouchListener {
         override fun onDown(e: MotionEvent): Boolean {
             return true
         }
+
+        override fun onDoubleTap(e: MotionEvent): Boolean {
+            onDoubleClick()
+            return super.onDoubleTap(e)
+        }
+
+
 
         override fun onFling(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
             var result = false
@@ -61,6 +68,7 @@ open class SwipeListener2(c: Context) : View.OnTouchListener {
 
     open fun onSwipeRight() {}
     open fun onSwipeLeft() {}
+    open fun onDoubleClick() {}
     open fun onSwipeTop() {}
     open fun onSwipeBottom() {}
 }

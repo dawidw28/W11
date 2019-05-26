@@ -58,6 +58,8 @@
         </activity>
         <activity android:name=".calc.CalcMain">
         </activity>
+        <activity android:name=".gallery.ResizableImage">
+        </activity>
         <activity android:name=".gallery.SelectedEvent"/>
         <activity android:name=".gallery.ImageFullScreen" android:launchMode="singleTop"/>
         <activity

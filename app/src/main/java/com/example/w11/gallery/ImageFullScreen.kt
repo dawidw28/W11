@@ -1,7 +1,7 @@
 package com.example.w11.gallery
 
 
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -21,6 +21,7 @@ class ImageFullScreen : AppCompatActivity(), SharedPreferences.OnSharedPreferenc
     private fun setupSharedPreferences() {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+        setListener(sharedPreferences.getBoolean("animations", false))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -46,19 +47,15 @@ class ImageFullScreen : AppCompatActivity(), SharedPreferences.OnSharedPreferenc
         item = intent.getIntegerArrayListExtra("Item")
         position = intent.getIntExtra("Pos", 0)
         fullscreenImageView.setImageResource(item[position])
-        var sharedPref = this.getPreferences(Context.MODE_PRIVATE)
-        setListener(sharedPref.getBoolean("animations", false))
         setupSharedPreferences()
 
     }
 
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
-
         if (key == "animations") {
             setListener(sharedPreferences.getBoolean("animations", false))
         }
-
     }
 
     private fun setListener(boolean: Boolean) {
@@ -79,6 +76,12 @@ class ImageFullScreen : AppCompatActivity(), SharedPreferences.OnSharedPreferenc
                     position = newPos
                     Toast.makeText(applicationContext, "$position", Toast.LENGTH_SHORT).show()
                 }
+
+                override fun onDoubleClick() {
+                    var intent = Intent(this.ctx, ResizableImage::class.java)
+                    intent.putExtra("eee", item[position])
+                    (ctx as ImageFullScreen).startActivityForResult(intent, 666)
+                }
             })
         } else
             fullscreenImageView.setOnTouchListener(object : SwipeListener2(this) {
@@ -97,9 +100,21 @@ class ImageFullScreen : AppCompatActivity(), SharedPreferences.OnSharedPreferenc
                     position = newPos
                     Toast.makeText(applicationContext, "$position", Toast.LENGTH_SHORT).show()
                 }
+
+                override fun onDoubleClick() {
+                    var intent = Intent(this.ctx, ResizableImage::class.java)
+                    intent.putExtra("eee", item[position])
+                    (ctx as ImageFullScreen).startActivityForResult(intent, 666)
+                }
             })
 
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 666 && resultCode == Activity.RESULT_OK) {
+        }
     }
 
 
