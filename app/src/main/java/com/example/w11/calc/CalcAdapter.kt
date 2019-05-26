@@ -61,6 +61,15 @@ class CalcAdapter(var courses: ArrayList<Course>, private var context: Context) 
             courses[position].isChecked = holder.box.isChecked
         }
 
+        if (isSelected) {
+            holder.view.setOnClickListener {
+                courses[position].isChecked = !courses[position].isChecked
+                holder.box.isChecked = courses[position].isChecked
+            }
+        } else holder.view.setOnClickListener {
+
+        }
+
     }
 
 
@@ -93,12 +102,7 @@ class CalcAdapter(var courses: ArrayList<Course>, private var context: Context) 
                 box.visibility = View.GONE
             }
 
-            if (selected) {
-                view.setOnClickListener {
-                    courses[position].isChecked = !courses[position].isChecked
-                    box.isChecked = courses[position].isChecked
-                }
-            }
+
         }
 
 

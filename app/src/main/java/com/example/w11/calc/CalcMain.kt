@@ -102,9 +102,8 @@ class CalcMain : AppCompatActivity() {
             selectAll.visibility = View.GONE
             deleteAll.visibility = View.GONE
             //  }
-            (coursesList.adapter as CalcAdapter).notifyDataSetChanged()
             avg.text = "Srednia: ${calcavg()}"
-
+            (coursesList.adapter as CalcAdapter).notifyDataSetChanged()
         }
     }
 
